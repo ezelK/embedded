@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "438698346666",
+    "firebase_url": "https://data-69d8f-default-rtdb.firebaseio.com",
+    "project_id": "data-69d8f",
+    "storage_bucket": "data-69d8f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438698346666:android:4242871bbdd3c6db47a8d3",
+        "android_client_info": {
+          "package_name": "com.example.embedded"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438698346666-igpvaejem9upp4c5q4i6b5gclgj6p89q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP7ky1_hSbhJ7wsOu2idCbKpV3DHL-ZdA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438698346666-igpvaejem9upp4c5q4i6b5gclgj6p89q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "438698346666-intsj7asro5e0q5dkp9t272k3dvc8bsm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.realtimedatabase"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438698346666:android:007c385b0f600c0247a8d3",
+        "android_client_info": {
+          "package_name": "com.example.realtimedatabase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438698346666-igpvaejem9upp4c5q4i6b5gclgj6p89q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP7ky1_hSbhJ7wsOu2idCbKpV3DHL-ZdA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438698346666-igpvaejem9upp4c5q4i6b5gclgj6p89q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "438698346666-intsj7asro5e0q5dkp9t272k3dvc8bsm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.realtimedatabase"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

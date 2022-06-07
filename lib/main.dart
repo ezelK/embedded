@@ -1,8 +1,16 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main()  async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     MaterialApp(
       home: HomePage(),
@@ -128,12 +136,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
       body: Stack(
         children: [
           Center(
-            child: Text('50 %',
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    wordSpacing: 3,
-                    color: Colors.white.withOpacity(.7)),
-                textScaleFactor: 7),
+            child: readPage(),
+            // child: Text('50 %',
+            //     style: TextStyle(
+            //         fontWeight: FontWeight.w600,
+            //         wordSpacing: 3,
+            //         color: Colors.white.withOpacity(.7)),
+            //     textScaleFactor: 7),
           ),
           CustomPaint(
             painter: MyPainter(
@@ -185,5 +194,46 @@ class MyPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     return true;
+  }
+}
+
+class readPage extends StatefulWidget {
+  @override
+  State<readPage> createState() => _readPageState();
+}
+
+class _readPageState extends State<readPage> {
+  String _weight = '0.0';
+  DatabaseReference dref = FirebaseDatabase.instance.ref();
+
+  late DatabaseReference databaseReference;
+  final _database = FirebaseDatabase.instance.ref();
+
+  final userNameRef = FirebaseDatabase.instance.ref();
+
+  @override
+  void initState() {
+    super.initState();
+    _activateListenerse();
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+  }
+
+  Future<void> _activateListenerse() async {
+    _database.child('Data/Weight').onValue.listen((event) {
+      final Object? name = event.snapshot.value;
+      setState(() {
+        _weight = '$name';
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    print(double.tryParse(_weight));
+    return Text(_weight);
   }
 }
