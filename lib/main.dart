@@ -6,6 +6,9 @@ import 'package:firebase_database/firebase_database.dart';
 
 import 'firebase_options.dart';
 
+
+const double maxWeight = 500;
+
 void main()  async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -209,7 +212,6 @@ class _readPageState extends State<readPage> {
   late DatabaseReference databaseReference;
   final _database = FirebaseDatabase.instance.ref();
 
-  final userNameRef = FirebaseDatabase.instance.ref();
 
   @override
   void initState() {
@@ -223,8 +225,9 @@ class _readPageState extends State<readPage> {
   }
 
   Future<void> _activateListenerse() async {
-    _database.child('Data/Weight').onValue.listen((event) {
+    _database.child('current/Weight').onValue.listen((event) {
       final Object? name = event.snapshot.value;
+      print("Test:" + name.toString());
       setState(() {
         _weight = '$name';
       });
@@ -233,7 +236,15 @@ class _readPageState extends State<readPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Text('$_weight %',
+    double doubleWeight = double.parse(_weight);
+    double percentage = doubleWeight * 100 / maxWeight;
+    if (percentage < 0) {
+      percentage = 0;
+    } else if(percentage > 100) {
+      percentage = 100;
+    }
+    String text = percentage.toStringAsFixed(2);
+    return Text('$text %',
             style: TextStyle(
                 fontWeight: FontWeight.w600,
                 wordSpacing: 3,
