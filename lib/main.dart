@@ -234,6 +234,11 @@ class _readPageState extends State<readPage> {
   @override
   Widget build(BuildContext context) {
     print(double.tryParse(_weight));
-    return Text(_weight);
+    return Text('$_weight %',
+            style: TextStyle(
+                fontWeight: FontWeight.w600,
+                wordSpacing: 3,
+                color: Colors.white.withOpacity(.7)),
+            textScaleFactor: 5);
   }
 }
