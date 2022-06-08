@@ -233,7 +233,6 @@ class _readPageState extends State<readPage> {
 
   @override
   Widget build(BuildContext context) {
-    print(double.tryParse(_weight));
     return Text('$_weight %',
             style: TextStyle(
                 fontWeight: FontWeight.w600,
